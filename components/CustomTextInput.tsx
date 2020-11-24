@@ -10,7 +10,7 @@ import {
   KeyboardType,
 } from 'react-native';
 import {CONSTANTS} from '../constants';
-import {AutoCompleteType} from '../declaration';
+import {AutoCompleteType} from '../definition';
 import CustomText from './CustomText';
 import CustomTouchable from './CustomTouchable';
 
@@ -77,7 +77,7 @@ const style = StyleSheet.create({
   },
   textInput: {
     width: '100%',
-    borderRadius: 9,
+    borderRadius: CONSTANTS.borderRadius,
     backgroundColor: CONSTANTS.darkerGreyColor,
     height: 42.5,
     paddingHorizontal: 22,

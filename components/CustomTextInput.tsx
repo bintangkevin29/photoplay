@@ -23,6 +23,8 @@ interface CustomTextInputProps {
   keyboardType?: KeyboardType;
   password?: boolean;
   autocompleteType?: AutoCompleteType;
+  onChangeText?: (e: string) => void;
+  value?: string;
 }
 
 const CustomTextInput: React.FC<CustomTextInputProps> = ({
@@ -34,6 +36,8 @@ const CustomTextInput: React.FC<CustomTextInputProps> = ({
   keyboardType = 'default',
   password,
   autocompleteType,
+  onChangeText,
+  value,
 }) => {
   const navigation = useNavigation();
 
@@ -44,6 +48,8 @@ const CustomTextInput: React.FC<CustomTextInputProps> = ({
       </CustomText>
       <View>
         <TextInput
+          value={value}
+          onChangeText={onChangeText}
           placeholder={placeholder}
           style={[style.textInput, inputStyle]}
           placeholderTextColor={CONSTANTS.lighterGreyColor}
@@ -72,17 +78,18 @@ const style = StyleSheet.create({
   },
   title: {
     fontFamily: CONSTANTS.fontBold,
-    fontSize: 13,
-    marginBottom: 9,
+    fontSize: 12,
+    marginBottom: 8,
   },
   textInput: {
     width: '100%',
     borderRadius: CONSTANTS.borderRadius,
     backgroundColor: CONSTANTS.darkerGreyColor,
-    height: 42.5,
-    paddingHorizontal: 22,
+    height: 42,
+    paddingHorizontal: 20,
     color: CONSTANTS.greyColor,
     fontFamily: CONSTANTS.fontRegular,
+    fontSize: 17,
   },
   forgotButtonContainer: {
     position: 'absolute',

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Image, StatusBar, StyleSheet, View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
@@ -16,6 +16,9 @@ import CustomTouchable from '../components/CustomTouchable';
 const LoginScreen: React.FC = () => {
   const navigation = useNavigation();
 
+  const [email, setEmail] = useState<String>('');
+  const [password, setPassword] = useState<String>('');
+
   return (
     <View style={style.container}>
       <StatusBar backgroundColor={CONSTANTS.backgroundColor} />
@@ -28,6 +31,8 @@ const LoginScreen: React.FC = () => {
         <AppLogo />
         <View style={style.loginFormContainer}>
           <CustomTextInput
+            onChangeText={(val) => setEmail(val)}
+            value={email}
             containerStyle={style.textInput}
             title="Email"
             placeholder="email here"
@@ -36,6 +41,8 @@ const LoginScreen: React.FC = () => {
           />
           <CustomTextInput
             containerStyle={style.textInput}
+            onChangeText={(val) => setPassword(val)}
+            value={password}
             title="Password"
             password={true}
             placeholder="password here"
@@ -57,10 +64,18 @@ const LoginScreen: React.FC = () => {
           </View>
           <View style={style.socialIconContainer}>
             <CustomTouchable>
-              <FacebookLogo style={style.socialIcon} height={47} width={47} />
+              <FacebookLogo
+                style={style.socialIcon}
+                height={43.81}
+                width={43.81}
+              />
             </CustomTouchable>
             <CustomTouchable>
-              <GoogleLogo style={style.socialIcon} height={47} width={47} />
+              <GoogleLogo
+                style={style.socialIcon}
+                height={43.81}
+                width={43.81}
+              />
             </CustomTouchable>
           </View>
         </View>
@@ -95,10 +110,10 @@ const style = StyleSheet.create({
   },
   loginFormContainer: {
     width: '100%',
-    marginBottom: 32,
+    marginBottom: 29,
   },
   textInput: {
-    marginBottom: 27,
+    marginBottom: 25,
   },
   socialLoginContainer: {
     width: '100%',
@@ -125,7 +140,7 @@ const style = StyleSheet.create({
     alignItems: 'center',
   },
   socialLoginBreakerText: {
-    fontSize: 15,
+    fontSize: 14,
     backgroundColor: CONSTANTS.backgroundColor,
     paddingHorizontal: 30,
   },
@@ -142,6 +157,7 @@ const style = StyleSheet.create({
   },
   registerButton: {
     marginTop: 3.5,
+    fontSize: 14,
   },
 });
 

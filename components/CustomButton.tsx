@@ -37,13 +37,13 @@ const CustomButton: React.FC<CustomButtonProps> = ({
 const style = StyleSheet.create({
   container: {
     borderRadius: CONSTANTS.borderRadius,
-    height: 48,
+    height: 44,
     alignItems: 'center',
     justifyContent: 'center',
   },
   title: {
     color: CONSTANTS.backgroundColor,
-    fontSize: 15,
+    fontSize: 14,
   },
 });
 

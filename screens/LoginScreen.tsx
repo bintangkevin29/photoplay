@@ -12,6 +12,7 @@ import CustomButton from '../components/CustomButton';
 import AppLogo from '../components/AppLogo';
 import CustomText from '../components/CustomText';
 import CustomTouchable from '../components/CustomTouchable';
+import Container from '../components/Container';
 
 const LoginScreen: React.FC = () => {
   const navigation = useNavigation();
@@ -20,7 +21,7 @@ const LoginScreen: React.FC = () => {
   const [password, setPassword] = useState<String>('');
 
   return (
-    <View style={style.container}>
+    <Container noPadding>
       <StatusBar backgroundColor={CONSTANTS.backgroundColor} />
       <Image
         resizeMode="cover"
@@ -81,14 +82,15 @@ const LoginScreen: React.FC = () => {
         </View>
         <View style={style.registerPrompt}>
           <CustomText weight="light">Don't have an account?</CustomText>
-          <CustomTouchable>
+          <CustomTouchable
+            onPress={() => navigation.navigate('RegisterScreen')}>
             <CustomText style={style.registerButton} weight="bold">
               REGISTER
             </CustomText>
           </CustomTouchable>
         </View>
       </View>
-    </View>
+    </Container>
   );
 };
 
